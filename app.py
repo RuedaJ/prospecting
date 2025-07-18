@@ -4,23 +4,18 @@ import pandas as pd
 import datetime
 import requests
 import os
-import sys
 import plotly.express as px
 import pydeck as pdk
 
-# Fix for module imports on Streamlit Cloud
-sys.path.append(os.path.join(os.path.dirname(__file__), "modules"))
-sys.path.append(os.path.join(os.path.dirname(__file__), "utils"))
-
-from enrich import enrich_contact
-from score import score_lead
-from maps import geocode_location
-from analytics import (
+from modules.enrich import enrich_contact
+from modules.score import score_lead
+from modules.maps import geocode_location
+from modules.analytics import (
     plot_segment_distribution,
     plot_lead_score_distribution,
     plot_email_presence
 )
-from linkedin import infer_linkedin_url
+from utils.linkedin import infer_linkedin_url
 
 # Load database
 DATA_PATH = "data/cg_leads_database.csv"
