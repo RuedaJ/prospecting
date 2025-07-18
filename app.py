@@ -32,7 +32,7 @@ else:
 st.title("Christopher Guy Lead Intelligence App")
 
 # Score leads
-df["Lead Score"] = df.apply(score_lead, axis=1)
+df["Lead Score"] = df.apply(lambda row: score_lead(row.to_dict()), axis=1)
 
 # Add new lead
 st.markdown("### ➕ Add New Lead")
