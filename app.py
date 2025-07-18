@@ -32,7 +32,11 @@ else:
 st.title("Christopher Guy Lead Intelligence App")
 
 # Score leads
-df["Lead Score"] = df.apply(lambda row: score_lead(row.to_dict()), axis=1)
+if not df.empty and "Segment" in df.columns:
+    df["Lead Score"] = df.apply(lambda row: score_lead(row.to_dict()), axis=1)
+else:
+    df["Lead Score"] = []
+
 
 # Add new lead
 st.markdown("### ➕ Add New Lead")
